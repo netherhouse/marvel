@@ -2,10 +2,9 @@ import { Component } from "react";
 import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import MarvelService from "../../services/MarvelService";
-
 import "./charList.scss";
 
-class charList extends Component {
+class CharList extends Component {
   state = {
     charList: [],
     loading: true,
@@ -17,20 +16,26 @@ class charList extends Component {
   componentDidMount() {
     this.marvelService
       .getAllCharacters()
-      .then(this.oncharListLoaded)
+      .then(this.onCharListLoaded)
       .catch(this.onError);
   }
-  oncharListLoaded = (charList) => {
+
+  onCharListLoaded = (charList) => {
     this.setState({
       charList,
       loading: false,
     });
   };
+
   onError = () => {
-    this.setState({ loading: false, error: true });
+    this.setState({
+      error: true,
+      loading: false,
+    });
   };
-  renderItems(arr) {
+  renderItems(arr, index) {
     const items = arr.map((item) => {
+      const key = item.id ? item.id : index;
       let imgStyle = { objectFit: "cover" };
       if (
         item.thumbnail ===
@@ -40,7 +45,11 @@ class charList extends Component {
       }
 
       return (
-        <li className="char__item" key={item.id}>
+        <li
+          className="char__item"
+          key={key}
+          onClick={() => this.props.onCharSelected(item.id)}
+        >
           <img src={item.thumbnail} alt={item.name} style={imgStyle} />
           <div className="char__name">{item.name}</div>
         </li>
@@ -70,4 +79,4 @@ class charList extends Component {
   }
 }
 
-export default charList;
+export default CharList;
