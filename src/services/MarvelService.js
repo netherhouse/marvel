@@ -5,6 +5,13 @@ class MarvelService {
 
   getResource = async (url) => {
     let res = await fetch(url);
+    console.log(res);
+    // console.log(
+    //   res.json().then((a) => {
+    //     console.log(a);
+    //   }),
+    //   "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+    // );
 
     if (!res.ok) {
       throw new Error(`Could not fetch ${url}, status: ${res.status}`);
