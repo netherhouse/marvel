@@ -25,6 +25,9 @@ const CharList = (props) => {
   };
 
   const onCharListLoaded = (newCharList) => {
+    // const { logger, secondLog } = await import("./someFunc");
+    // logger();
+
     let ended = false;
     if (newCharList.length < 9) {
       ended = true;
@@ -40,13 +43,6 @@ const CharList = (props) => {
   const itemRefs = useRef([]);
 
   const focusOnItem = (id) => {
-    // Я реализовал вариант чуть сложнее, и с классом и с фокусом
-    // Но в теории можно оставить только фокус, и его в стилях использовать вместо класса
-    // На самом деле, решение с css-классом можно сделать, вынеся персонажа
-    // в отдельный компонент. Но кода будет больше, появится новое состояние
-    // и не факт, что мы выиграем по оптимизации за счет бОльшего кол-ва элементов
-
-    // По возможности, не злоупотребляйте рефами, только в крайних случаях
     itemRefs.current.forEach((item) =>
       item.classList.remove("char__item_selected")
     );
