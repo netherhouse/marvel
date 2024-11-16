@@ -23,7 +23,7 @@ const useMarvelService = () => {
     return _transformCharacter(res.data.results[0]);
   };
 
-  const getAllComics = async (offset = 0) => {
+  const getAllComics = async (offset = 16) => {
     const res = await request(
       `${_apiBase}comics?orderBy=issueNumber&limit=8&offset=${offset}&${_apiKey}`
     );
