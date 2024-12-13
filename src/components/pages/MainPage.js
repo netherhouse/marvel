@@ -4,6 +4,7 @@ import CharList from "../charList/CharList";
 import CharInfo from "../charInfo/CharInfo";
 
 import decoration from "../../resources/img/vision.png";
+import CharSearchForm from "../charSearchForm/CharSearchForm";
 
 const MainPage = () => {
   const [selectedChar, setChar] = useState(null);
@@ -17,6 +18,7 @@ const MainPage = () => {
       <div className="char__content">
         <CharList onCharSelected={onCharSelected} />
         <CharInfo charId={selectedChar} />
+        <CharSearchForm />
       </div>
       <img className="bg-decoration" src={decoration} alt="vision" />
     </>
