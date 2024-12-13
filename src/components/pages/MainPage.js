@@ -17,8 +17,10 @@ const MainPage = () => {
       <RandomChar />
       <div className="char__content">
         <CharList onCharSelected={onCharSelected} />
-        <CharInfo charId={selectedChar} />
-        <CharSearchForm />
+        <div>
+          <CharInfo charId={selectedChar} />
+          <CharSearchForm />
+        </div>
       </div>
       <img className="bg-decoration" src={decoration} alt="vision" />
     </>
