@@ -4,19 +4,13 @@ import PropTypes from "prop-types";
 
 import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../errorMessage/ErrorMessage";
-import useMarvelService from "../../services/MarvelService";
+import useMarvelService from "../../services/marvelService";
 
 import "./charList.scss";
 
 interface CharListProps {
   onCharSelected: (id: number) => void;
   charId: number | null;
-}
-
-interface Char {
-  id: number;
-  name: string;
-  thumbnail: string;
 }
 
 const CharList: React.FC<CharListProps> = ({ onCharSelected }) => {
