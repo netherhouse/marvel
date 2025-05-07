@@ -1,12 +1,16 @@
-import { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 
-class ErrorBoundary extends Component {
+interface ErrorBoundaryProps {
+  children: ReactNode;
+}
+
+class ErrorBoundary extends Component<ErrorBoundaryProps> {
   state = {
     error: false,
   };
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: any, errorInfo: any) {
     console.log(error, errorInfo);
     this.setState({
       error: true,
@@ -18,7 +22,7 @@ class ErrorBoundary extends Component {
       return <ErrorMessage />;
     }
 
-    return this.props.Children;
+    return this.props.children;
   }
 }
 

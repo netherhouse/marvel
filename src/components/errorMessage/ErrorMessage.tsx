@@ -1,6 +1,6 @@
-import img from "./error.gif";
+import React from "react";
 
-const ErrorMessage = () => {
+const ErrorMessage: React.FC = () => {
   return (
     <img
       style={{
@@ -10,7 +10,7 @@ const ErrorMessage = () => {
         objectFit: "contain",
         margin: "0 auto",
       }}
-      src={img}
+      src={process.env.PUBLIC_URL + "/error.gif"}
       alt="Error"
     />
   );
