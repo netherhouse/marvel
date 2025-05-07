@@ -48,6 +48,6 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.77.2"
+    "@types/react-helmet": "^6.1.11"
   }
 }
