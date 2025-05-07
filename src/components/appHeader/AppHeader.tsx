@@ -1,7 +1,8 @@
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./appHeader.scss";
 
-const AppHeader = () => {
+const AppHeader: React.FC = () => {
   return (
     <header className="app__header">
       <h1 className="app__title">
@@ -15,7 +16,7 @@ const AppHeader = () => {
             <NavLink
               end
               style={({ isActive }) => ({
-                color: isActive ? "#9F0013" : "inherit",
+                color: isActive ? "#9f0013" : "inherit",
               })}
               to="/"
             >
@@ -26,7 +27,7 @@ const AppHeader = () => {
           <li>
             <NavLink
               style={({ isActive }) => ({
-                color: isActive ? "#9F0013" : "inherit",
+                color: isActive ? "#9f0013" : "inherit",
               })}
               to="/comics"
             >
